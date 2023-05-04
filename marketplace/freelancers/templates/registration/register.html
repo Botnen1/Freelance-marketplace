@@ -5,6 +5,13 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+    <label for="role">I am a:</label>
+    <select name="role" required>
+      <option value="">Choose...</option>
+      <option value="freelancer">Freelancer</option>
+      <option value="client">Client</option>
+    </select>
+    <br>
     <button type="submit">Register</button>
   </form>
 {% endblock %}

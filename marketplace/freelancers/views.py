@@ -4,19 +4,21 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile, Job
 from .forms import JobForm
+from django.contrib.auth.backends import ModelBackend
+
 
 
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
+        role = request.POST.get('role')
+
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(request, username=username, password=password)
-            UserProfile.objects.create(user=user)
-            login(request, user)
+            user = form.save()
+            UserProfile.objects.create(user=user, role=role)
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('dashboard')
+
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
