@@ -1,0 +1,21 @@
+Webapplication - Freelance Talent Marketplace
+
+
+Fotografer
+Grafisk design
+Kode
+Klippere//annet videoarbeid
+Tekstforfattere
+Modell
+Leie av utstyr
+Leie av lokale//sted
+
+
+Django vs Flask framework
+
+Python backend
+
+
+Html css??
+
+

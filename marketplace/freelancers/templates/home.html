@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Welcome to the Freelance Marketplace</h1>
+  <p>
+    <a href="{% url 'register' %}">Register</a> or
+    <a href="{% url 'login' %}">Login</a>
+  </p>
+{% endblock %}
